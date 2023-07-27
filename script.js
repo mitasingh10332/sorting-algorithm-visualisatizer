@@ -255,3 +255,28 @@ document.getElementById('speedSlider').addEventListener('input', (e) => {
 // Initialize with a random array
 generateRandomArray(20);
 updateArrayView();
+// Function to read and process the custom array input
+function useCustomArray() {
+  const customArrayInput = document.getElementById('customArrayInput').value;
+  const customArray = customArrayInput.split(',').map(numStr => parseInt(numStr.trim()));
+
+  // Validate the input: Check if all array elements are valid numbers
+  if (customArray.some(isNaN)) {
+    alert('Invalid array input. Please enter numbers separated by commas.');
+    return;
+  }
+
+  array = customArray;
+  updateArrayView();
+}
+
+// Event listener for the "Use Custom Array" button
+document.getElementById('useCustomArray').addEventListener('click', () => {
+  useCustomArray();
+});
+
+// ... Other event listeners as provided ...
+
+// Initialize with a random array (you can remove this line if you want to start with an empty array)
+generateRandomArray(20);
+updateArrayView();
